@@ -1,0 +1,1532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aydin Taromchi | Learning Strategy & Business Growth</title>
+<meta name="description" content="Aydin Taromchi helps organizations grow through people. 9+ years in learning design, sales enablement, and business development. Based in Toronto.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32'><rect width='32' height='32' rx='16' fill='%23C84B31'/><text x='16' y='21' font-family='sans-serif' font-size='14' font-weight='700' fill='white' text-anchor='middle'>AT</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:ital,opsz,wght@0,14..32,300..600;1,14..32,300..400&display=swap" rel="stylesheet">
+<style>
+/* ============================================
+   RESET & FOUNDATIONS
+   ============================================ */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg: #FAF9F6;
+  --bg-alt: #F0EDE8;
+  --bg-dark: #1B2A4A;
+  --text: #1A1A1A;
+  --text-muted: #6B6B6B;
+  --text-light: #9A9A9A;
+  --accent: #C84B31;
+  --accent-hover: #B33D24;
+  --accent-glow: rgba(200, 75, 49, 0.08);
+  --border: #E0DCD6;
+  --white: #FFFFFF;
+  --font-display: 'Syne', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+  --section-pad-y: clamp(5rem, 10vw, 9rem);
+  --section-pad-x: clamp(1.5rem, 5vw, 6rem);
+  --max-w: 1200px;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: clamp(1rem, 1.1vw, 1.0625rem);
+  line-height: 1.7;
+  color: var(--text);
+  background: var(--bg);
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--white);
+}
+
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; border: none; background: none; }
+
+/* Grain texture overlay */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  opacity: 0.025;
+  pointer-events: none;
+  z-index: 9999;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 200px;
+}
+
+/* Scroll progress bar */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: var(--accent);
+  z-index: 1001;
+  width: 0%;
+  transition: width 0.05s linear;
+}
+
+/* ============================================
+   NAVIGATION
+   ============================================ */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 0 var(--section-pad-x);
+  transform: translateY(-100%);
+  transition: transform 0.5s var(--ease-out), background 0.3s;
+  background: rgba(250, 249, 246, 0.9);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid transparent;
+}
+
+.nav.visible {
+  transform: translateY(0);
+  border-bottom-color: var(--border);
+}
+
+.nav-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 64px;
+}
+
+.nav-logo {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.25rem;
+  color: var(--accent);
+  letter-spacing: -0.02em;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+.nav-links a {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  transition: color 0.3s;
+  position: relative;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent);
+  transition: width 0.3s var(--ease-out);
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--text);
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+  width: 100%;
+}
+
+/* ============================================
+   HERO
+   ============================================ */
+.hero {
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  padding: clamp(6rem, 12vh, 10rem) var(--section-pad-x) var(--section-pad-y);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-orb {
+  position: absolute;
+  width: 55vw;
+  height: 55vw;
+  max-width: 700px;
+  max-height: 700px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--accent-glow), transparent 70%);
+  top: -5%;
+  right: -10%;
+  filter: blur(60px);
+  pointer-events: none;
+  animation: orbFloat 12s ease-in-out infinite;
+}
+
+@keyframes orbFloat {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(-20px, 15px) scale(1.03); }
+  66% { transform: translate(10px, -10px) scale(0.97); }
+}
+
+.hero-orb-2 {
+  position: absolute;
+  width: 35vw;
+  height: 35vw;
+  max-width: 450px;
+  max-height: 450px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(27, 42, 74, 0.04), transparent 70%);
+  bottom: 5%;
+  left: -8%;
+  filter: blur(50px);
+  pointer-events: none;
+  animation: orbFloat 15s ease-in-out infinite reverse;
+}
+
+.hero-content {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-pre {
+  font-family: var(--font-body);
+  font-size: clamp(0.875rem, 1.2vw, 1rem);
+  font-weight: 400;
+  color: var(--text-muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: heroReveal 0.8s var(--ease-out) 0.2s forwards;
+}
+
+.hero-name {
+  font-family: var(--font-display);
+  font-size: clamp(3.2rem, 9vw, 7.5rem);
+  font-weight: 800;
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  color: var(--text);
+  margin-bottom: 1.5rem;
+  text-wrap: balance;
+}
+
+.hero-name span {
+  display: block;
+  opacity: 0;
+  transform: translateY(40px);
+  animation: heroReveal 0.9s var(--ease-out) forwards;
+}
+
+.hero-name span:nth-child(1) { animation-delay: 0.35s; }
+.hero-name span:nth-child(2) { animation-delay: 0.5s; }
+
+@keyframes heroReveal {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.hero-tagline {
+  font-family: var(--font-display);
+  font-size: clamp(1.15rem, 2.2vw, 1.65rem);
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--text);
+  max-width: 650px;
+  margin-bottom: 1.25rem;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: heroReveal 0.8s var(--ease-out) 0.65s forwards;
+}
+
+.hero-tagline .highlight {
+  color: var(--accent);
+  position: relative;
+}
+
+.hero-descriptors {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
+  margin-bottom: 2.5rem;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: heroReveal 0.8s var(--ease-out) 0.8s forwards;
+}
+
+.hero-descriptors span {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.hero-descriptors span::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  flex-shrink: 0;
+}
+
+.hero-descriptors span:first-child::before { display: none; }
+
+.hero-cta-row {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: heroReveal 0.8s var(--ease-out) 0.95s forwards;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 1rem 2rem;
+  background: var(--accent);
+  color: var(--white);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.95rem;
+  border-radius: 60px;
+  transition: background 0.3s, transform 0.3s var(--ease-out), box-shadow 0.3s;
+  letter-spacing: 0.01em;
+}
+
+.btn-primary:hover {
+  background: var(--accent-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(200, 75, 49, 0.25);
+}
+
+.btn-primary svg {
+  width: 18px;
+  height: 18px;
+  transition: transform 0.3s var(--ease-out);
+}
+
+.btn-primary:hover svg {
+  transform: translateX(3px);
+}
+
+.hero-location {
+  font-size: 0.875rem;
+  color: var(--text-light);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.hero-location svg {
+  width: 16px;
+  height: 16px;
+  opacity: 0.6;
+}
+
+.hero-scroll {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  opacity: 0;
+  animation: heroReveal 0.8s var(--ease-out) 1.4s forwards;
+}
+
+.hero-scroll span {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--text-light);
+}
+
+.hero-scroll-line {
+  width: 1px;
+  height: 40px;
+  background: var(--border);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-scroll-line::after {
+  content: '';
+  position: absolute;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--accent);
+  animation: scrollLine 2s ease-in-out infinite;
+}
+
+@keyframes scrollLine {
+  0% { top: -100%; }
+  50% { top: 100%; }
+  100% { top: 100%; }
+}
+
+/* ============================================
+   MARQUEE
+   ============================================ */
+.marquee-wrap {
+  overflow: hidden;
+  padding: 1.25rem 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  background: var(--bg);
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marqueeScroll 40s linear infinite;
+}
+
+.marquee-track:hover { animation-play-state: paused; }
+
+@keyframes marqueeScroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.marquee-item {
+  font-family: var(--font-display);
+  font-size: clamp(0.8rem, 1.1vw, 0.9rem);
+  font-weight: 500;
+  color: var(--text-muted);
+  white-space: nowrap;
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.marquee-item::after {
+  content: '';
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--accent);
+  flex-shrink: 0;
+}
+
+/* ============================================
+   SECTIONS — SHARED
+   ============================================ */
+.section {
+  padding: var(--section-pad-y) var(--section-pad-x);
+}
+
+.section-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+}
+
+.section-label {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--accent);
+  margin-bottom: 1rem;
+}
+
+.section-heading {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4.5vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+  color: var(--text);
+  text-wrap: balance;
+}
+
+/* Scroll-triggered animations */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+
+/* ============================================
+   ABOUT
+   ============================================ */
+.about { background: var(--bg); }
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(3rem, 6vw, 6rem);
+  align-items: start;
+  margin-top: clamp(2rem, 4vw, 3.5rem);
+}
+
+.about-text p {
+  font-size: clamp(1rem, 1.15vw, 1.0625rem);
+  color: var(--text);
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+}
+
+.about-text p:last-child { margin-bottom: 0; }
+
+.about-aside {
+  padding: clamp(2rem, 3vw, 3rem);
+  background: var(--bg-alt);
+  border-radius: 16px;
+  position: relative;
+  overflow: hidden;
+}
+
+.about-aside::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--accent);
+  border-radius: 4px 0 0 4px;
+}
+
+.about-aside blockquote {
+  font-family: var(--font-display);
+  font-size: clamp(1.1rem, 1.6vw, 1.35rem);
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--text);
+  font-style: italic;
+}
+
+.about-aside cite {
+  display: block;
+  margin-top: 1.25rem;
+  font-style: normal;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+/* ============================================
+   WHAT I BRING — BENTO GRID
+   ============================================ */
+.bento { background: var(--bg); }
+
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+  margin-top: clamp(2.5rem, 4vw, 3.5rem);
+}
+
+.bento-card {
+  background: var(--bg-alt);
+  border-radius: 16px;
+  padding: clamp(1.75rem, 2.5vw, 2.25rem);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.5s var(--ease-out), box-shadow 0.5s var(--ease-out);
+  border: 1px solid transparent;
+}
+
+.bento-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.06);
+  border-color: var(--border);
+}
+
+.bento-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.bento-icon svg {
+  width: 22px;
+  height: 22px;
+  color: var(--accent);
+}
+
+.bento-card h3 {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 0.6rem;
+  color: var(--text);
+}
+
+.bento-card p {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 1.25rem;
+}
+
+.bento-metric {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+}
+
+.bento-metric strong {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--accent);
+  letter-spacing: -0.02em;
+}
+
+.bento-metric span {
+  font-size: 0.8rem;
+  color: var(--text-light);
+}
+
+/* ============================================
+   EXPERIENCE
+   ============================================ */
+.experience { background: var(--bg-alt); }
+
+.exp-list {
+  margin-top: clamp(2.5rem, 4vw, 3.5rem);
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.exp-item {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: clamp(1.5rem, 3vw, 3rem);
+  padding: clamp(2rem, 3vw, 2.5rem) 0;
+  border-bottom: 1px solid var(--border);
+  position: relative;
+}
+
+.exp-item:first-child { padding-top: 0; }
+.exp-item:last-child { border-bottom: none; }
+
+.exp-meta {
+  position: relative;
+}
+
+.exp-year {
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: -0.01em;
+}
+
+.exp-org {
+  font-size: 0.8rem;
+  color: var(--text-light);
+  margin-top: 0.25rem;
+  line-height: 1.4;
+}
+
+.exp-body h3 {
+  font-family: var(--font-display);
+  font-size: clamp(1.15rem, 1.6vw, 1.35rem);
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 0.75rem;
+  line-height: 1.3;
+}
+
+.exp-body ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.exp-body li {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  padding-left: 1.25rem;
+  position: relative;
+}
+
+.exp-body li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.6em;
+  width: 6px;
+  height: 1.5px;
+  background: var(--accent);
+}
+
+.exp-tag {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  background: var(--white);
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--accent);
+  margin-top: 0.75rem;
+  border: 1px solid var(--border);
+}
+
+/* ============================================
+   IMPACT NUMBERS
+   ============================================ */
+.impact {
+  background: var(--bg-dark);
+  color: var(--white);
+  text-align: center;
+}
+
+.impact .section-label { color: rgba(255,255,255,0.5); }
+.impact .section-heading { color: var(--white); }
+
+.impact-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  margin-top: clamp(3rem, 5vw, 4rem);
+}
+
+.impact-item {
+  padding: 1.5rem;
+}
+
+.impact-number {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 5vw, 3.75rem);
+  font-weight: 800;
+  color: var(--accent);
+  letter-spacing: -0.03em;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.impact-label {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.55);
+  line-height: 1.4;
+}
+
+/* ============================================
+   TOOLKIT
+   ============================================ */
+.toolkit {
+  background: var(--bg-alt);
+}
+
+.toolkit-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: clamp(2.5rem, 4vw, 3.5rem);
+}
+
+.toolkit-group h3 {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.toolkit-group h3 svg {
+  width: 18px;
+  height: 18px;
+  color: var(--accent);
+}
+
+.toolkit-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.toolkit-tag {
+  padding: 0.45rem 1rem;
+  background: var(--white);
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  border: 1px solid transparent;
+  transition: border-color 0.3s, color 0.3s, background 0.3s;
+}
+
+.toolkit-tag:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--white);
+}
+
+/* ============================================
+   EDUCATION & RECOGNITION
+   ============================================ */
+.education { background: var(--bg-alt); }
+
+.edu-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-top: clamp(2.5rem, 4vw, 3.5rem);
+}
+
+.edu-card {
+  background: var(--white);
+  border-radius: 16px;
+  padding: clamp(2rem, 3vw, 2.5rem);
+  border: 1px solid var(--border);
+}
+
+.edu-card h3 {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 0.35rem;
+}
+
+.edu-card .edu-sub {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-bottom: 0.25rem;
+}
+
+.edu-card .edu-year {
+  font-size: 0.8rem;
+  color: var(--text-light);
+}
+
+.awards-list {
+  margin-top: clamp(2rem, 3vw, 2.5rem);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.award-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.award-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 0.15rem;
+}
+
+.award-icon svg {
+  width: 16px;
+  height: 16px;
+  color: var(--white);
+}
+
+.award-text strong {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 600;
+  display: block;
+  color: var(--text);
+}
+
+.award-text span {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+/* ============================================
+   CONTACT
+   ============================================ */
+.contact {
+  background: var(--bg);
+  text-align: center;
+}
+
+.contact-heading {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  color: var(--text);
+  margin-bottom: 1.5rem;
+  text-wrap: balance;
+}
+
+.contact-sub {
+  font-size: clamp(1rem, 1.3vw, 1.1rem);
+  color: var(--text-muted);
+  max-width: 550px;
+  margin: 0 auto 2.5rem;
+  line-height: 1.7;
+}
+
+.contact-email {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1.15rem 2.5rem;
+  background: var(--accent);
+  color: var(--white);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.05rem;
+  border-radius: 60px;
+  transition: background 0.3s, transform 0.3s var(--ease-out), box-shadow 0.3s;
+  margin-bottom: 2rem;
+}
+
+.contact-email:hover {
+  background: var(--accent-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(200, 75, 49, 0.25);
+}
+
+.contact-email svg {
+  width: 20px;
+  height: 20px;
+}
+
+.contact-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.contact-link {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: color 0.3s;
+}
+
+.contact-link:hover { color: var(--accent); }
+
+.contact-link svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+.footer {
+  padding: 2rem var(--section-pad-x);
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-text {
+  font-size: 0.8rem;
+  color: var(--text-light);
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 900px) {
+  .about-grid { grid-template-columns: 1fr; }
+  .bento-grid { grid-template-columns: repeat(2, 1fr); }
+  .impact-grid { grid-template-columns: repeat(2, 1fr); }
+  .toolkit-grid { grid-template-columns: 1fr; }
+  .edu-grid { grid-template-columns: 1fr; }
+  .exp-item { grid-template-columns: 140px 1fr; }
+}
+
+@media (max-width: 600px) {
+  .hero { min-height: 100svh; padding-top: 5rem; }
+  .hero-scroll { display: none; }
+  .bento-grid { grid-template-columns: 1fr; }
+  .impact-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .exp-item {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+  .exp-meta {
+    display: flex;
+    gap: 0.75rem;
+    align-items: baseline;
+  }
+  .nav-links { display: none; }
+  .hero-cta-row { flex-direction: column; align-items: flex-start; gap: 1rem; }
+  .footer { flex-direction: column; gap: 1rem; text-align: center; }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+  .hero-name span, .hero-pre, .hero-tagline,
+  .hero-descriptors, .hero-cta-row, .hero-scroll {
+    opacity: 1;
+    transform: none;
+  }
+  .reveal { opacity: 1; transform: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- Scroll Progress -->
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<!-- Navigation -->
+<nav class="nav" id="nav" role="navigation" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo" aria-label="Home">AT</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#expertise">Expertise</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero" id="hero">
+  <div class="hero-orb" aria-hidden="true"></div>
+  <div class="hero-orb-2" aria-hidden="true"></div>
+  <div class="hero-content">
+    <p class="hero-pre">Hey, I'm</p>
+    <h1 class="hero-name">
+      <span>Aydin</span>
+      <span>Taromchi</span>
+    </h1>
+    <p class="hero-tagline">I design experiences that help <span class="highlight">people and businesses grow.</span></p>
+    <div class="hero-descriptors">
+      <span>Learning Design</span>
+      <span>Sales Enablement</span>
+      <span>Business Development</span>
+    </div>
+    <div class="hero-cta-row">
+      <a href="mailto:Taromchi.Aydin@gmail.com" class="btn-primary">
+        Let's Connect
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </a>
+      <span class="hero-location">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+        Toronto, Ontario
+      </span>
+    </div>
+  </div>
+  <div class="hero-scroll" aria-hidden="true">
+    <span>Scroll</span>
+    <div class="hero-scroll-line"></div>
+  </div>
+</section>
+
+<!-- Marquee -->
+<div class="marquee-wrap" aria-hidden="true">
+  <div class="marquee-track">
+    <span class="marquee-item">Learning Design</span>
+    <span class="marquee-item">Curriculum Development</span>
+    <span class="marquee-item">Sales Enablement</span>
+    <span class="marquee-item">Stakeholder Management</span>
+    <span class="marquee-item">Data Analytics</span>
+    <span class="marquee-item">Business Strategy</span>
+    <span class="marquee-item">ADDIE & SAM</span>
+    <span class="marquee-item">Adult Learning</span>
+    <span class="marquee-item">Training Facilitation</span>
+    <span class="marquee-item">Change Management</span>
+    <span class="marquee-item">Financial Services</span>
+    <span class="marquee-item">Client Relationships</span>
+    <!-- Duplicate for seamless loop -->
+    <span class="marquee-item">Learning Design</span>
+    <span class="marquee-item">Curriculum Development</span>
+    <span class="marquee-item">Sales Enablement</span>
+    <span class="marquee-item">Stakeholder Management</span>
+    <span class="marquee-item">Data Analytics</span>
+    <span class="marquee-item">Business Strategy</span>
+    <span class="marquee-item">ADDIE & SAM</span>
+    <span class="marquee-item">Adult Learning</span>
+    <span class="marquee-item">Training Facilitation</span>
+    <span class="marquee-item">Change Management</span>
+    <span class="marquee-item">Financial Services</span>
+    <span class="marquee-item">Client Relationships</span>
+  </div>
+</div>
+
+<!-- About -->
+<section class="section about" id="about">
+  <div class="section-inner">
+    <p class="section-label reveal">About</p>
+    <h2 class="section-heading reveal reveal-delay-1">The intersection of<br>learning & business.</h2>
+    <div class="about-grid">
+      <div class="about-text reveal reveal-delay-2">
+        <p>I started my career managing 150+ business client accounts, learning what drives revenue, how to read stakeholders, and why relationships are everything. Then I spent nine years in education, leading departments, designing curricula from scratch, and earning a Faculty of the Semester award along the way.</p>
+        <p>What connects all of it? I've always been building capability in people to create business outcomes. Whether it's designing a training program that actually moves metrics, enabling a team to sell smarter, or partnering with stakeholders to turn strategy into action, I bring a rare combination of business acumen and instructional expertise.</p>
+        <p>I hold a Bachelor of Commerce (Honours) in Management Economics and Finance from the University of Guelph, and I've spent my career applying that foundation where it matters most: helping people perform at their best while tackling and simplifying complex issues.</p>
+      </div>
+      <div class="about-aside reveal reveal-delay-3">
+        <blockquote>"The best learning solutions don't just transfer knowledge. They change behaviour, improve performance, and drive real business results."</blockquote>
+        <cite>My design philosophy</cite>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- What I Bring — Bento Grid -->
+<section class="section bento" id="expertise">
+  <div class="section-inner">
+    <p class="section-label reveal">What I Bring</p>
+    <h2 class="section-heading reveal reveal-delay-1">Built for impact across<br>learning & growth.</h2>
+    <div class="bento-grid">
+      <div class="bento-card reveal reveal-delay-1">
+        <div class="bento-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+        </div>
+        <h3>Learning Design & Delivery</h3>
+        <p>End-to-end instructional design using ADDIE and SAM methodologies. Created and delivered modular digital content across synchronous, asynchronous, and blended formats, all built to WCAG accessibility standards.</p>
+        <div class="bento-metric">
+          <strong>91%</strong>
+          <span>average learner completion rate</span>
+        </div>
+      </div>
+      <div class="bento-card reveal reveal-delay-2">
+        <div class="bento-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h3>Business & Client Strategy</h3>
+        <p>Relevant educational background in economics and finance with hands-on account management experience. I understand revenue drivers, consultative selling, and how to align learning initiatives with business objectives.</p>
+        <div class="bento-metric">
+          <strong>150+</strong>
+          <span>business client accounts managed</span>
+        </div>
+      </div>
+      <div class="bento-card reveal reveal-delay-2">
+        <div class="bento-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+        </div>
+        <h3>Stakeholder Leadership</h3>
+        <p>Department head who has navigated complex organizational dynamics. Building alignment across teams, onboarding new hires, and driving collaboration between groups.</p>
+        <div class="bento-metric">
+          <strong>12</strong>
+          <span>staff onboarded & mentored</span>
+        </div>
+      </div>
+      <div class="bento-card reveal reveal-delay-3">
+        <div class="bento-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
+        </div>
+        <h3>Data-Driven Results</h3>
+        <p>Strong quantitative background in economics and finance. Learning analytics, performance metrics, and continuous improvement, turning feedback loops and data insights into measurable gains that matter.</p>
+        <div class="bento-metric">
+          <strong>76→88%</strong>
+          <span>course pass rate improvement</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Experience -->
+<section class="section experience" id="experience">
+  <div class="section-inner">
+    <p class="section-label reveal">Experience</p>
+    <h2 class="section-heading reveal reveal-delay-1">Where I've made<br>an impact.</h2>
+    <div class="exp-list">
+      <div class="exp-item reveal reveal-delay-2">
+        <div class="exp-meta">
+          <div class="exp-year">2025 – Present</div>
+          <div class="exp-org">Keyano College<br>Fort McMurray, AB</div>
+        </div>
+        <div class="exp-body">
+          <h3>Instructor, Corporate Finance (Remote)</h3>
+          <ul>
+            <li>Deliver synchronous virtual instruction on Corporate Finance to adult learners, adapting communication style and maintaining high engagement in remote settings</li>
+            <li>Evaluate learner progress through formative and summative assessments, using data insights to continuously refine instructional content and delivery</li>
+          </ul>
+        </div>
+      </div>
+      <div class="exp-item reveal">
+        <div class="exp-meta">
+          <div class="exp-year">2022 – 2025</div>
+          <div class="exp-org">Fleming College<br>Toronto, ON</div>
+        </div>
+        <div class="exp-body">
+          <h3>Learning Experience Designer & Instructor</h3>
+          <ul>
+            <li>Designed end-to-end learning solutions using ADDIE and SAM, achieving 91% completion rates and 4.8/5.0 satisfaction scores across diverse learner populations</li>
+            <li>Created modular digital content including video lectures, interactive assessments, and scenario-based activities for multiple delivery formats aligned with WCAG</li>
+            <li>Increased course pass rates from 76% to 88% through data-driven instructional adjustments and formative assessment implementation</li>
+          </ul>
+          <span class="exp-tag">Faculty of the Semester, Fall 2022</span>
+        </div>
+      </div>
+      <div class="exp-item reveal">
+        <div class="exp-meta">
+          <div class="exp-year">2016 – 2022</div>
+          <div class="exp-org">TAIE International Institute<br>Toronto, ON</div>
+        </div>
+        <div class="exp-body">
+          <h3>Department Head & Learning Designer</h3>
+          <ul>
+            <li>Led design and development of curriculum, lesson plans, and assessments for 8 senior-level business courses with 100% regulatory compliance</li>
+            <li>Onboarded and trained 12 new staff members through structured training programs and mentorship, reducing ramp-up time significantly</li>
+            <li>Improved departmental quality scores from 80% to 100% through strategic planning and stakeholder alignment</li>
+          </ul>
+        </div>
+      </div>
+      <div class="exp-item reveal">
+        <div class="exp-meta">
+          <div class="exp-year">2015 – 2016</div>
+          <div class="exp-org">Itex<br>Toronto, ON</div>
+        </div>
+        <div class="exp-body">
+          <h3>Account Manager</h3>
+          <ul>
+            <li>Managed 150+ active business client accounts, increasing engagement 10–14x through proactive outreach and consultative selling</li>
+            <li>Generated new revenue through needs assessments, cross-sell and upsell identification, and tailored solution presentations</li>
+            <li>Built strong client relationships through regular touchpoints, executive-level presentations, and data-driven ROI demonstrations</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Impact Numbers -->
+<section class="section impact" id="impact">
+  <div class="section-inner">
+    <p class="section-label reveal">By the Numbers</p>
+    <h2 class="section-heading reveal reveal-delay-1">Results that speak<br>for themselves.</h2>
+    <div class="impact-grid">
+      <div class="impact-item reveal reveal-delay-1">
+        <div class="impact-number" data-count="9">0</div>
+        <div class="impact-label">Years of professional experience spanning education and business</div>
+      </div>
+      <div class="impact-item reveal reveal-delay-2">
+        <div class="impact-number" data-count="91" data-suffix="%">0</div>
+        <div class="impact-label">Average learner completion rate across programs</div>
+      </div>
+      <div class="impact-item reveal reveal-delay-3">
+        <div class="impact-number" data-count="4.8" data-decimal="true" data-suffix="/5">0</div>
+        <div class="impact-label">Learner satisfaction score, consistently above benchmark</div>
+      </div>
+      <div class="impact-item reveal reveal-delay-4">
+        <div class="impact-number" data-count="150" data-suffix="+">0</div>
+        <div class="impact-label">business client accounts managed with measurable engagement growth</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Toolkit -->
+<section class="section toolkit" id="toolkit">
+  <div class="section-inner">
+    <p class="section-label reveal">Toolkit</p>
+    <h2 class="section-heading reveal reveal-delay-1">What I work with.</h2>
+    <div class="toolkit-grid">
+      <div class="toolkit-group reveal reveal-delay-1">
+        <h3>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
+          Design & Authoring
+        </h3>
+        <div class="toolkit-tags">
+          <span class="toolkit-tag">Articulate 360</span>
+          <span class="toolkit-tag">Camtasia</span>
+          <span class="toolkit-tag">Canva</span>
+          <span class="toolkit-tag">PowerPoint</span>
+        </div>
+      </div>
+      <div class="toolkit-group reveal reveal-delay-2">
+        <h3>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+          Platforms
+        </h3>
+        <div class="toolkit-tags">
+          <span class="toolkit-tag">Moodle</span>
+          <span class="toolkit-tag">Blackboard</span>
+          <span class="toolkit-tag">Canvas LMS</span>
+          <span class="toolkit-tag">Microsoft Teams</span>
+          <span class="toolkit-tag">Zoom</span>
+        </div>
+      </div>
+      <div class="toolkit-group reveal reveal-delay-3">
+        <h3>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
+          Data & Analytics
+        </h3>
+        <div class="toolkit-tags">
+          <span class="toolkit-tag">Excel (Advanced)</span>
+          <span class="toolkit-tag">LMS Reporting</span>
+          <span class="toolkit-tag">Google Analytics</span>
+          <span class="toolkit-tag">CRM Systems</span>
+          <span class="toolkit-tag">Data Visualization</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section class="section contact" id="contact">
+  <div class="section-inner">
+    <div class="reveal">
+      <p class="section-label" style="text-align:center;">Get in Touch</p>
+    </div>
+    <h2 class="contact-heading reveal reveal-delay-1">Let's build<br>something together.</h2>
+    <p class="contact-sub reveal reveal-delay-2">I'm exploring opportunities in learning design, sales enablement, and business development. If you think there's a fit, I'd love to hear from you.</p>
+    <div class="reveal reveal-delay-3">
+      <a href="mailto:Taromchi.Aydin@gmail.com" class="contact-email">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+        Taromchi.Aydin@gmail.com
+      </a>
+    </div>
+    <div class="contact-links reveal reveal-delay-4">
+      <a href="https://www.linkedin.com/in/aydin-taromchi" target="_blank" rel="noopener noreferrer" class="contact-link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+        LinkedIn
+      </a>
+      <span class="contact-link" style="cursor: default;">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+        Toronto, Ontario
+      </span>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <span class="footer-text">&copy; 2026 Aydin Taromchi. All rights reserved.</span>
+  <span class="footer-text">Designed with intention.</span>
+</footer>
+
+<script>
+(function() {
+  'use strict';
+
+  // ============================================
+  // SCROLL PROGRESS
+  // ============================================
+  const scrollProgress = document.getElementById('scrollProgress');
+
+  function updateProgress() {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    scrollProgress.style.width = progress + '%';
+  }
+
+  // ============================================
+  // NAVIGATION VISIBILITY
+  // ============================================
+  const nav = document.getElementById('nav');
+  const hero = document.getElementById('hero');
+  let lastScroll = 0;
+
+  function handleNavVisibility() {
+    const scrollY = window.scrollY;
+    const heroBottom = hero.offsetHeight * 0.7;
+
+    if (scrollY > heroBottom) {
+      nav.classList.add('visible');
+    } else {
+      nav.classList.remove('visible');
+    }
+    lastScroll = scrollY;
+  }
+
+  // ============================================
+  // ACTIVE NAV LINK
+  // ============================================
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+
+  function updateActiveLink() {
+    const scrollY = window.scrollY + 100;
+    sections.forEach(section => {
+      const top = section.offsetTop;
+      const height = section.offsetHeight;
+      const id = section.getAttribute('id');
+
+      if (scrollY >= top && scrollY < top + height) {
+        navLinks.forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('href') === '#' + id) {
+            link.classList.add('active');
+          }
+        });
+      }
+    });
+  }
+
+  // ============================================
+  // SCROLL-TRIGGERED REVEALS
+  // ============================================
+  const reveals = document.querySelectorAll('.reveal');
+
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.12,
+    rootMargin: '0px 0px -40px 0px'
+  });
+
+  reveals.forEach(el => revealObserver.observe(el));
+
+  // ============================================
+  // ANIMATED COUNTERS
+  // ============================================
+  const counters = document.querySelectorAll('.impact-number');
+  let countersAnimated = false;
+
+  function animateCounters() {
+    if (countersAnimated) return;
+    countersAnimated = true;
+
+    counters.forEach(counter => {
+      const target = parseFloat(counter.dataset.count);
+      const isDecimal = counter.dataset.decimal === 'true';
+      const suffix = counter.dataset.suffix || '';
+      const prefix = counter.dataset.prefix || '';
+      const duration = 2000;
+      const start = performance.now();
+
+      function update(now) {
+        const elapsed = now - start;
+        const progress = Math.min(elapsed / duration, 1);
+        // Ease out cubic
+        const eased = 1 - Math.pow(1 - progress, 3);
+        const current = eased * target;
+
+        if (isDecimal) {
+          counter.textContent = prefix + current.toFixed(1) + suffix;
+        } else {
+          counter.textContent = prefix + Math.floor(current) + suffix;
+        }
+
+        if (progress < 1) {
+          requestAnimationFrame(update);
+        } else {
+          if (isDecimal) {
+            counter.textContent = prefix + target.toFixed(1) + suffix;
+          } else {
+            counter.textContent = prefix + target + suffix;
+          }
+          // Add the plus for 9+
+          if (target === 9) counter.textContent = '9+';
+        }
+      }
+      requestAnimationFrame(update);
+    });
+  }
+
+  const impactSection = document.getElementById('impact');
+  const counterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        animateCounters();
+        counterObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.3 });
+
+  if (impactSection) counterObserver.observe(impactSection);
+
+  // ============================================
+  // COMBINED SCROLL HANDLER (throttled via rAF)
+  // ============================================
+  let ticking = false;
+
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      requestAnimationFrame(() => {
+        updateProgress();
+        handleNavVisibility();
+        updateActiveLink();
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }, { passive: true });
+
+  // Initial calls
+  updateProgress();
+  handleNavVisibility();
+})();
+</script>
+</body>
+</html>
